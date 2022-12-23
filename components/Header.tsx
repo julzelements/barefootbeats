@@ -40,6 +40,36 @@ const Header: React.FC = () => {
     </div>
   );
 
+  const center = (
+    <div className="center">
+      <Link href="/monologue" legacyBehavior>
+        <a className="bold">
+          Monologue Editor
+        </a>
+      </Link>
+      <style jsx>{`
+        .bold {
+          font-weight: bold;
+        }
+
+        a {
+          text-decoration: none;
+          color: var(--geist-foreground);
+          display: inline-block;
+        }
+
+        .center {
+          margin: auto;
+          color: purple;
+        }
+
+        a + a {
+          margin-left: 1rem;
+        }
+      `}</style>
+    </div>
+  );
+
   let right = null;
 
   if (status === "loading") {
@@ -74,11 +104,6 @@ const Header: React.FC = () => {
     right = (
       <div className="right">
         <p>Validating session ...</p>
-        <style jsx>{`
-          .right {
-            margin-left: auto;
-          }
-        `}</style>
       </div>
     );
   }
@@ -98,10 +123,6 @@ const Header: React.FC = () => {
 
           a + a {
             margin-left: 1rem;
-          }
-
-          .right {
-            margin-left: auto;
           }
 
           .right a {
@@ -176,10 +197,6 @@ const Header: React.FC = () => {
             margin-left: 1rem;
           }
 
-          .right {
-            margin-left: auto;
-          }
-
           .right a {
             border: 1px solid var(--geist-foreground);
             padding: 0.5rem 1rem;
@@ -197,6 +214,7 @@ const Header: React.FC = () => {
   return (
     <nav>
       {left}
+      {center}
       {right}
       <style jsx>{`
         nav {
